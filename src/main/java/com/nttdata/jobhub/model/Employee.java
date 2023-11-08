@@ -20,6 +20,7 @@ public class Employee {
     private String name;
     private String phoneNumber;
     private String dni;
+    private String password;
     private String address;
     private String birthdate;
     @Column(columnDefinition = "boolean default false")

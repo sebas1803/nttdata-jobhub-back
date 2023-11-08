@@ -1,6 +1,5 @@
 package com.nttdata.jobhub.util;
 
-import com.nttdata.jobhub.dto.CreateOfficeDto;
 import com.nttdata.jobhub.model.Office;
 import com.nttdata.jobhub.repository.OfficeRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +21,6 @@ public class CreateOffice implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (officeRepository.count() == 0) {
-            // Crea y guarda las oficinas iniciales si la tabla está vacía
             List<Office> offices = new ArrayList<>();
             offices.add(new Office("Sede Miraflores"));
             offices.add(new Office("Sede San Isidro"));

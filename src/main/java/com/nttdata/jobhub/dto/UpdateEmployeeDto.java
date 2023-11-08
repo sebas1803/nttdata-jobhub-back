@@ -15,5 +15,5 @@ public class UpdateEmployeeDto {
     private String dni;
     private String address;
     private boolean isRemote;
-    private List<Long> officeIds;
+    private List<Long> offices;
 }

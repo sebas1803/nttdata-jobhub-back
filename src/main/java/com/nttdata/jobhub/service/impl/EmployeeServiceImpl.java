@@ -62,16 +62,18 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.setAddress(request.getAddress());
             }
 
-            if (request.getOfficeIds() == null || request.getOfficeIds().isEmpty()) {
+            if (request.getOffices() == null || request.getOffices().isEmpty()) {
                 employee.setOffices(Collections.emptyList());
+            }
+
+            if (request.isRemote()) {
+                employee.setOffices(Collections.emptyList());
+                employee.setRemote(true);
             } else {
-                if (request.isRemote()) {
-                    employee.setOffices(Collections.emptyList());
-                    employee.setRemote(true);
-                } else {
-                    List<Office> officesToLink = officeRepository.findAllById(request.getOfficeIds());
+                employee.setRemote(false);
+                if (request.getOffices() != null && !request.getOffices().isEmpty()) {
+                    List<Office> officesToLink = officeRepository.findAllById(request.getOffices());
                     employee.setOffices(officesToLink);
-                    employee.setRemote(false);
                 }
             }
 
